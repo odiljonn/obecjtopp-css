@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" />
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    </head>
+  <body>
+
+  <div id="particles-js"></div>
+
+    <h1>HTML DOM Events</h1>
+
+    <p id="demo"></p>      
+        <label>Name</label>
+        <input id="name" type="text" /> <br />
+        <label>Surname</label>
+        <input id="surname" type="text" /><br />
+        <label>Age</label>
+        <input id="age" type="text" /><br />
+        <label>Eye color</label>
+        <input id="eyecolor" type="text" /><br />
+      </div>
+    </div>
+
+    <button onclick="myFunction()">Qo'shish</button>
+
+    <script>
+      students = [];
+      let text = "";
+
+      class Person {
+        constructor(firstName, lastName, age, eyeColor) {
+          this.firstName = firstName;
+          this.lastName = lastName;
+          this.age = age;
+          this.eyeColor = eyeColor;
+        }
+      }
+
+      function myFunction() {
+        let name = document.getElementById("name").value;
+        let surname = document.getElementById("surname").value;
+        let age = document.getElementById("age").value;
+        let eyeColor = document.getElementById("eyecolor").value;
+
+        let person = new Person(name, surname, age, eyeColor);
+        students.push(person);
+ 
+
+
+      students.forEach(function(item, index) {
+        text += index + 1 + ": " + item.firstName + " " + item.lastName + " (" + item.age + " yosh, ko'z rangi: " + item.eyeColor + ")<br>";
+      })
+
+      document.getElementById("demo").innerHTML = text;
+    }
+
+
+       particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 100,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#ffffff"
+        },
+        "shape": {
+          "type": "circle"
+        },
+        "opacity": {
+          "value": 0.5
+        },
+        "size": {
+          "value": 3,
+          "random": true
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 6
+        }
+      },
+      "interactivity": {
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "repulse"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
+    </script>
+  </body>
+</html>
